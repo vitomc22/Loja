@@ -1,95 +1,99 @@
-package test;
+package Loja.test;
 
-import org.junit.Test; 
-import org.junit.Before; 
-import org.junit.After; 
+import Loja.CarrinhoDeCompras;
+import Loja.ProdutoComTamanho;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-/** 
-* CarrinhoDeCompras Tester. 
-* 
-* @author <Victor Oliveira>
-* @since <pre>mai 28, 2022</pre> 
-* @version 1.0 
-*/ 
-public class CarrinhoDeComprasTest { 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Before
-public void before() throws Exception { 
-} 
 
-@After
-public void after() throws Exception { 
-} 
+/**
+ * Loja.CarrinhoDeCompras Tester.
+ *
+ * @author <Victor Oliveira>
+ * @version 1.0
+ * @since <pre>mai 28, 2022</pre>
+ */
+public class CarrinhoDeComprasTest {
+    CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
+    ProdutoComTamanho produto1 = new ProdutoComTamanho(10, "Tênis Adidas", 39.90, "35", 0);
+    ProdutoComTamanho produto2 = new ProdutoComTamanho(9, "Shorts Adidas", 59.90, "20", 0);
+    ProdutoComTamanho produto3 = new ProdutoComTamanho(5, "Camiseta Adidas", 79.90, "30", 0);
 
-/** 
-* 
-* Method: getQuantidadeNoCarrinho() 
-* 
-*/ 
-@Test
-public void testGetQuantidadeNoCarrinho() throws Exception { 
-//TODO: Test goes here... 
-} 
 
-/** 
-* 
-* Method: setQuantidadeNoCarrinho(int quantidadeNoCarrinho) 
-* 
-*/ 
-@Test
-public void testSetQuantidadeNoCarrinho() throws Exception { 
-//TODO: Test goes here... 
-} 
+    @Before
+    public void before() throws Exception {
+        CarrinhoDeCompras.setQuantidadeNoCarrinho(0);
+        CarrinhoDeCompras.setTotal(0.0);
+    }
 
-/** 
-* 
-* Method: adicionaProduto(ProdutoComTamanho p, int quantidade) 
-* 
-*/ 
-@Test
-public void testAdicionaProduto() throws Exception { 
-//TODO: Test goes here... 
-} 
+    @After
+    public void after() throws Exception {
+    }
 
-/** 
-* 
-* Method: removeProduto(ProdutoComTamanho p, int quantidade) 
-* 
-*/ 
-@Test
-public void testRemoveProduto() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+     * Method: getQuantidadeNoCarrinho()
+     */
+    @Test()
+    public void testGetQuantidadeNoCarrinho() throws Exception {
+        carrinho.adicionaProduto(produto1, 2);
+        carrinho.adicionaProduto(produto2, 3);
+        carrinho.adicionaProduto(produto3, 5);
+        assertEquals(10, CarrinhoDeCompras.getQuantidadeNoCarrinho());
+    }
 
-/** 
-* 
-* Method: getPrecoTotalCarrinho() 
-* 
-*/ 
-@Test
-public void testGetPrecoTotalCarrinho() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+     * Method: setQuantidadeNoCarrinho(int quantidadeNoCarrinho)
+     */
+    @Test
+    public void testSetQuantidadeNoCarrinho() throws Exception {
+        CarrinhoDeCompras.setQuantidadeNoCarrinho(5);
+        CarrinhoDeCompras.setQuantidadeNoCarrinho(10);
+        assertEquals(10, CarrinhoDeCompras.getQuantidadeNoCarrinho());
 
-/** 
-* 
-* Method: getCarrinho() 
-* 
-*/ 
-@Test
-public void testGetCarrinho() throws Exception { 
-//TODO: Test goes here... 
-} 
+    }
 
-/** 
-* 
-* Method: setCarrinho(HashMap<ProdutoComTamanho, Integer> carrinho) 
-* 
-*/ 
-@Test
-public void testSetCarrinho() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+     * Method: adicionaProduto(Loja.ProdutoComTamanho p, int quantidade)
+     */
+    @Test
+    public void testAdicionaProduto() throws Exception {
+        carrinho.adicionaProduto(produto1, 2);
+        carrinho.adicionaProduto(produto2, 3);
+        carrinho.adicionaProduto(produto3, 5);
+        assertEquals(10, CarrinhoDeCompras.getQuantidadeNoCarrinho());
+
+
+    }
+
+    /**
+     * Method: removeProduto(Loja.ProdutoComTamanho p, int quantidade)
+     */
+    @Test
+    public void testRemoveProduto() throws Exception {
+        carrinho.adicionaProduto(produto1, 2);
+        carrinho.adicionaProduto(produto2, 3);
+        carrinho.adicionaProduto(produto3, 5);
+        carrinho.removeProduto(produto3, 5);
+        assertEquals(5, CarrinhoDeCompras.getQuantidadeNoCarrinho());
+
+    }
+
+    /**
+     * Method: getPrecoTotalCarrinho()
+     */
+    @Test
+    public void testGetPrecoTotalCarrinho() throws Exception {
+        carrinho.adicionaProduto(produto1, 2);
+        carrinho.adicionaProduto(produto2, 3);
+        carrinho.adicionaProduto(produto3, 5);
+        assertEquals(659, carrinho.getPrecoTotalCarrinho());
+
+
+    }
+
 
 
 } 

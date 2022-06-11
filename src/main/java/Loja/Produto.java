@@ -1,3 +1,5 @@
+package Loja;
+
 public class Produto {
     String nome;
     Integer codigo;

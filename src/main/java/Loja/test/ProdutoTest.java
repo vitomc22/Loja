@@ -1,127 +1,114 @@
-package test;
+package Loja.test;
 
-import org.junit.Test;
-import org.junit.Before; 
+import Loja.Produto;
 import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-/** 
-* Produto Tester. 
-* 
-* @author <Victor Oliveira>
-* @since <pre>mai 28, 2022</pre> 
-* @version 1.0 
-*/ 
-public class ProdutoTest { 
+/**
+ * Loja.Produto Tester.
+ *
+ * @author <Victor Oliveira>
+ * @version 1.0
+ * @since <pre>mai 28, 2022</pre>
+ */
+public class ProdutoTest {
+    Produto produto = new Produto(10, "Bolsa", 30.0, 1);
+    Produto produto2 = new Produto(10, "Bolsa", 30.0, 1);
+    Produto produto3 = new Produto(30, "Sapato", 20.0, 1);
 
-@Before
-public void before() throws Exception {
-    Produto
-} 
+    @Test
+    public void testEquals() throws Exception {
 
-@After
-public void after() throws Exception { 
-} 
+        boolean igual = produto.equals(produto2);
+        assertEquals(true, igual);
+    }
 
-/** 
-* 
-* Method: hashCode() 
-* 
-*/ 
-@Test
-public void testHashCode() throws Exception {
+    @Test
+    public void testGetNome() throws Exception {
+        assertEquals("Bolsa", produto.getNome());
+        assertEquals("Bolsa", produto2.getNome());
+        assertEquals("Sapato", produto3.getNome());
 
-} 
+    }
 
-/** 
-* 
-* Method: equals(Object o) 
-* 
-*/ 
-@Test
-public void testEquals() throws Exception { 
-//TODO: Test goes here... 
-} 
+    @Test
+    public void testSetNome() throws Exception {
+        produto.setNome("Capacete");
+        produto2.setNome("Sandália");
+        produto3.setNome("Cinto");
+        assertEquals("Capacete", produto.getNome());
+        assertEquals("Sandália", produto2.getNome());
+        assertEquals("Cinto", produto3.getNome());
+    }
 
-/** 
-* 
-* Method: getNome() 
-* 
-*/ 
-@Test
-public void testGetNome() throws Exception { 
+    @Test
+    public void testGetCodigo() throws Exception {
+        assertEquals(10, produto.getCodigo());
+        assertEquals(10, produto2.getCodigo());
+        assertEquals(30, produto3.getCodigo());
+    }
 
-} 
+    @Test
+    public void testSetCodigo() throws Exception {
+        produto.setCodigo(3);
+        produto2.setCodigo(23);
+        produto3.setCodigo(42);
+        assertEquals(3, produto.getCodigo());
+        assertEquals(23, produto2.getCodigo());
+        assertEquals(42, produto3.getCodigo());
+    }
 
-/** 
-* 
-* Method: setNome(String nome) 
-* 
-*/ 
-@Test
-public void testSetNome() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+     * Method: getPreco()
+     */
+    @Test
+    public void testGetPreco() throws Exception {
+        assertEquals(30, produto.getPreco());
+        assertEquals(30, produto2.getPreco());
+        assertEquals(20, produto3.getPreco());
+    }
 
-/** 
-* 
-* Method: getCodigo() 
-* 
-*/ 
-@Test
-public void testGetCodigo() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+     * Method: setPreco(Double preco)
+     */
+    @Test
+    public void testSetPreco() throws Exception {
+       produto.setPreco(25.0);
+       produto2.setPreco(30.0);
+       produto3.setPreco(45.0);
+        assertEquals(25, produto.getPreco());
+        assertEquals(30, produto2.getPreco());
+        assertEquals(45, produto3.getPreco());
+    }
 
-/** 
-* 
-* Method: setCodigo(Integer codigo) 
-* 
-*/ 
-@Test
-public void testSetCodigo() throws Exception { 
-//TODO: Test goes here... 
-} 
 
-/** 
-* 
-* Method: getPreco() 
-* 
-*/ 
-@Test
-public void testGetPreco() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+     * Method: getQuantidade()
+     */
+    @Test
+    public void testGetQuantidade() throws Exception {
+        assertEquals(1,produto.getQuantidade());
+        assertEquals(1,produto2.getQuantidade());
+        assertEquals(1,produto3.getQuantidade());
 
-/** 
-* 
-* Method: setPreco(Double preco) 
-* 
-*/ 
-@Test
-public void testSetPreco() throws Exception { 
-//TODO: Test goes here... 
-} 
+    }
 
-/** 
-* 
-* Method: getQuantidade() 
-* 
-*/ 
-@Test
-public void testGetQuantidade() throws Exception { 
-//TODO: Test goes here... 
-} 
-
-/** 
-* 
-* Method: setQuantidade(Integer quantidade) 
-* 
-*/ 
-@Test
-public void testSetQuantidade() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+     * Method: setQuantidade(Integer quantidade)
+     */
+    @Test
+    public void testSetQuantidade() throws Exception {
+     produto.setQuantidade(3);
+     produto2.setQuantidade(5);
+     produto3.setQuantidade(9);
+        assertEquals(3,produto.getQuantidade());
+        assertEquals(5,produto2.getQuantidade());
+        assertEquals(9,produto3.getQuantidade());
+    }
 
 
 } 

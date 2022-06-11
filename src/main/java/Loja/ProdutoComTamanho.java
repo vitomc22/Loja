@@ -1,3 +1,5 @@
+package Loja;
+
 public class ProdutoComTamanho extends Produto{
     String tamanho;
 
